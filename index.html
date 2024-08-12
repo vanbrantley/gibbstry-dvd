@@ -1,0 +1,221 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .bouncing-logo {
+            position: absolute;
+            font-size: 192px;
+            border: 2px solid white;
+            color: #fff;
+        }
+
+        .jacquard-12-regular {
+            font-family: "Jacquard 12", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bouncing-logo jacquard-12-regular" id="logo">G</div>
+
+    <script>
+        const logo = document.getElementById('logo');
+        let x = 100, y = 100;
+        let dx = 4, dy = 4;
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function bounceLogo() {
+            const logoWidth = logo.offsetWidth;  // Get current width of the logo
+            const logoHeight = logo.offsetHeight; // Get current height of the logo
+
+            x += dx;
+            y += dy;
+
+            let bounced = false;
+
+            // Check for collision with the right and left edges
+            if (x + logoWidth >= window.innerWidth) {
+                dx *= -1;
+                x = window.innerWidth - logoWidth;  // Prevent overflow
+                bounced = true;
+            }
+            if (x <= 0) {
+                dx *= -1;
+                x = 0;  // Prevent overflow
+                bounced = true;
+            }
+
+            // Check for collision with the bottom and top edges
+            if (y + logoHeight >= window.innerHeight) {
+                dy *= -1;
+                y = window.innerHeight - logoHeight;  // Prevent overflow
+                bounced = true;
+            }
+            if (y <= 0) {
+                dy *= -1;
+                y = 0;  // Prevent overflow
+                bounced = true;
+            }
+
+            if (bounced) {
+                logo.style.color = getRandomColor();  // Change color on bounce
+            }
+
+            logo.style.left = x + 'px';
+            logo.style.top = y + 'px';
+
+            requestAnimationFrame(bounceLogo);
+        }
+
+        bounceLogo();
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .bouncing-logo {
+            position: absolute;
+            width: 192px;
+            /* Make the div square */
+            height: 192px;
+            /* Same as width */
+            /* border: 2px solid white; */
+            color: #fff;
+            display: flex;
+            /* Use flexbox to center text */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            font-size: 360px;
+            /* Scale text size to fit */
+            text-align: center;
+            /* Center text alignment */
+            box-sizing: border-box;
+            /* Include border in size */
+        }
+
+        .jacquard-12-regular {
+            font-family: "Jacquard 12", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            /* Adjust line-height for vertical centering */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bouncing-logo jacquard-12-regular" id="logo">G</div>
+
+    <script>
+        const logo = document.getElementById('logo');
+        let x = 100, y = 100;
+        let dx = 4, dy = 4;
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function bounceLogo() {
+            const logoWidth = logo.offsetWidth;  // Get current width of the logo
+            const logoHeight = logo.offsetHeight; // Get current height of the logo
+
+            x += dx;
+            y += dy;
+
+            let bounced = false;
+
+            // Check for collision with the right and left edges
+            if (x + logoWidth >= window.innerWidth) {
+                dx *= -1;
+                x = window.innerWidth - logoWidth;  // Prevent overflow
+                bounced = true;
+            }
+            if (x <= 0) {
+                dx *= -1;
+                x = 0;  // Prevent overflow
+                bounced = true;
+            }
+
+            // Check for collision with the bottom and top edges
+            if (y + logoHeight >= window.innerHeight) {
+                dy *= -1;
+                y = window.innerHeight - logoHeight;  // Prevent overflow
+                bounced = true;
+            }
+            if (y <= 0) {
+                dy *= -1;
+                y = 0;  // Prevent overflow
+                bounced = true;
+            }
+
+            if (bounced) {
+                logo.style.color = getRandomColor();  // Change color on bounce
+            }
+
+            logo.style.left = x + 'px';
+            logo.style.top = y + 'px';
+
+            requestAnimationFrame(bounceLogo);
+        }
+
+        bounceLogo();
+    </script>
+</body>
+
+</html>

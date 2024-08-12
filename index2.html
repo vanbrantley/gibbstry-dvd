@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gibbstry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .bouncing-logo {
+            position: absolute;
+            font-size: 24px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            width: 100px;
+            height: 50px;
+        }
+
+        /* .bouncing-logo {
+            position: absolute;
+            font-size: 192px;
+            color: #fff;
+        } */
+
+        .jacquard-12-regular {
+            font-family: "Jacquard 12", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p class="bouncing-logo jacquard-12-regular" id="logo">G</p> -->
+    <!-- <div class="bouncing-logo jacquard-12-regular" id="logo">G</div> -->
+    <div class="bouncing-logo" id="logo">Your Logo</div>
+    <script>
+        const logo = document.getElementById('logo');
+        let x = 100, y = 100;
+        let dx = 2, dy = 2;
+        const logoWidth = logo.offsetWidth;
+        const logoHeight = logo.offsetHeight;
+
+        function bounceLogo() {
+            x += dx;
+            y += dy;
+
+            if (x + logoWidth >= window.innerWidth || x <= 0) {
+                dx *= -1;
+            }
+            if (y + logoHeight >= window.innerHeight || y <= 0) {
+                dy *= -1;
+            }
+
+            logo.style.left = x + 'px';
+            logo.style.top = y + 'px';
+
+            requestAnimationFrame(bounceLogo);
+        }
+
+        bounceLogo();
+    </script>
+</body>
+
+</html>
