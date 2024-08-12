@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.bouncing-logo {
+    position: absolute;
+    width: 192px;
+    /* Make the div square */
+    height: 192px;
+    /* Same as width */
+    /* border: 2px solid white; */
+    color: #fff;
+    display: flex;
+    /* Use flexbox to center text */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    font-size: 360px;
+    /* Scale text size to fit */
+    text-align: center;
+    /* Center text alignment */
+    box-sizing: border-box;
+    /* Include border in size */
+}
+
+.jacquard-12-regular {
+    font-family: "Jacquard 12", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    /* Adjust line-height for vertical centering */
+}

@@ -109,7 +109,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
-    <style>
+    <link href="styles.css" rel="stylesheet">
+    <!-- <style>
         body {
             margin: 0;
             overflow: hidden;
@@ -151,7 +152,7 @@
             line-height: 1;
             /* Adjust line-height for vertical centering */
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -159,7 +160,12 @@
 
     <script>
         const logo = document.getElementById('logo');
-        let x = 100, y = 100;
+        const logoWidth = logo.offsetWidth;
+        const logoHeight = logo.offsetHeight;
+        // let x = 100, y = 100;
+        let x = Math.random() * (window.innerWidth - logoWidth);
+        let y = Math.random() * (window.innerHeight - logoHeight);
+        console.log(x, y);
         let dx = 4, dy = 4;
 
         function getRandomColor() {
