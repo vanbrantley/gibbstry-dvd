@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DVD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>dvd</title>
 </head>
 
 <body>
@@ -20,7 +21,8 @@
         const logoHeight = logo.offsetHeight;
         let x = Math.random() * (window.innerWidth - logoWidth);
         let y = Math.random() * (window.innerHeight - logoHeight);
-        let dx = 4, dy = 4;
+        let dx = 3, dy = 3;
+        const speedThresholdWidth = 800;
 
         function getRandomColor() {
             const letters = '0123456789ABCDEF';
@@ -29,7 +31,17 @@
                 color += letters[Math.floor(Math.random() * 16)];
             }
             return color;
-        }
+        };
+
+        function updateSpeed() {
+            if (window.innerWidth < speedThresholdWidth) {
+                dx = 2;
+                dy = 2;
+            } else {
+                dx = 3;
+                dy = 3;
+            }
+        };
 
         function bounceLogo() {
             const logoWidth = logo.offsetWidth;  // Get current width of the logo
@@ -72,13 +84,17 @@
             logo.style.top = y + 'px';
 
             requestAnimationFrame(bounceLogo);
-        }
+        };
 
-        bounceLogo();
+        // Initial speed update
+        updateSpeed();
 
         window.addEventListener('resize', () => {
-            console.log("Viewport width:", window.innerWidth);
+            updateSpeed();
+            // console.log("Viewport width:", window.innerWidth);
         });
+
+        bounceLogo();
 
     </script>
 </body>
