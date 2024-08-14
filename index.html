@@ -96,6 +96,18 @@
 
         bounceLogo();
 
+        // Click on logo to make it stop or start
+        logo.addEventListener('click', () => {
+
+            if (dx == 0 && dy == 0) {
+                updateSpeed();
+            } else {
+                dx = 0;
+                dy = 0;
+            }
+
+        });
+
     </script>
 </body>
 
